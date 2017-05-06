@@ -15,17 +15,8 @@ module.exports = (env) => {
             ]
         },
         entry: {
-            vendor: [
-                '@angular/common',
-                '@angular/compiler',
-                '@angular/core',
-                '@angular/http',
-                '@angular/platform-browser',
-                '@angular/platform-browser-dynamic',
-                '@angular/router',
-                '@angular/platform-server',
-                'angular2-universal',
-                'angular2-universal-polyfills',
+            vendor: ['angular',
+                'angular-route',
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
                 'es6-shim',
