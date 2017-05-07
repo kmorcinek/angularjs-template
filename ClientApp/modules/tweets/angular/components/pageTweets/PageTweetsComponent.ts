@@ -1,10 +1,10 @@
-import {SharedModel} from "../../../core/models/impl/SharedModel";
+import { SharedModel } from "../../../core/models/impl/SharedModel";
+
+declare var require: any;
+
 export class PageTweetsComponent implements ng.IComponentOptions {
     public controller: any = PageTweetsController;
-    public template: string = `
-        <tweet-sidebar ng-class="{'sidebar-collapsed': $ctrl.sharedModel.sidebarCollapsed}"></tweet-sidebar>
-        <tweet-main></tweet-main>
-    `;
+    public template = require('./PageTweetsComponent.html');
 }
 export class PageTweetsController {
     public static $inject: Array<string> = ["SharedModel"];
