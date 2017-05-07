@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 module.exports = (env) => {
@@ -18,7 +19,8 @@ module.exports = (env) => {
             rules: [
                 { test: /\.ts$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true'] },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
-                { test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
+                { test: /\.css$/, use: ExtractTextPlugin.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) },
+                { test: /\.less$/, use: ExtractTextPlugin.extract({ use: [isDevBuild ? 'css-loader' : 'css-loader?minimize', 'less-loader'] }) },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
@@ -31,6 +33,7 @@ module.exports = (env) => {
         entry: { 'main-client': './ClientApp/index.ts' },
         output: { path: path.join(__dirname, clientBundleOutputDir) },
         plugins: [
+            new ExtractTextPlugin('site.css'),
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require('./wwwroot/dist/vendor-manifest.json')
