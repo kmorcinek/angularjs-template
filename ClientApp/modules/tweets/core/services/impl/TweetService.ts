@@ -1,5 +1,5 @@
 import {Tweet} from "../../entities/Tweet";
-import "jQuery"
+import * as jQuery from 'jquery';
 
 export class TweetService {
     public getAll(): Array<Tweet> {
