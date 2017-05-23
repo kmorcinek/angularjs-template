@@ -12,6 +12,9 @@ export class TweetService {
         jQuery('body').css('color', 'green');
         //$('body').css('color', 'red');
 
+        var signalRExists = jQuery.connection != null;
+        console.log('signalRExist', signalRExists);
+
         return returnObj;
     }
 }
