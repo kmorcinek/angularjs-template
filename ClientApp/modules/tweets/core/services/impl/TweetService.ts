@@ -1,5 +1,6 @@
 import {Tweet} from "../../entities/Tweet";
 import * as jQuery from 'jquery';
+import 'signalr';
 
 export class TweetService {
     public getAll(): Array<Tweet> {

@@ -1,3 +1,5 @@
+import 'expose-loader?jQuery!jquery';
+
 import "./modules/application/angular/index";
 import "./modules/tweets/angular/index";
 import "./modules/about/angular/index";
