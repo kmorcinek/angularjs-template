@@ -1,4 +1,4 @@
-import {Tweet} from "../../entities/Tweet";
+import { Tweet } from "../../entities/Tweet";
 import * as jQuery from 'jquery';
 import 'signalr';
 import './globals'
@@ -17,7 +17,7 @@ export class TweetService {
         var signalRExists = jQuery.connection != null;
         console.log('signalRExist', signalRExists);
 
-        jQuery.connection.browserHub.server.getData<Tweet>()
+        jQuery.connection.browserHub.server.getData()
             .done(() => {
                 console.log('getData');
             });

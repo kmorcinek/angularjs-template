@@ -1,11 +1,15 @@
-interface IBrowserHubServer {
-    getData<T>(): JQueryDeferred<T>;
-}
+import {Tweet} from "../../entities/Tweet";
 
-interface IBrowserHub {
-    server: IBrowserHubServer;
-}
+declare global {
+    interface IBrowserHubServer {
+        getData(): JQueryDeferred<Tweet>;
+    }
 
-interface SignalR {
-    browserHub: IBrowserHub;
+    interface IBrowserHub {
+        server: IBrowserHubServer;
+    }
+
+    interface SignalR {
+        browserHub: IBrowserHub;
+    }
 }
