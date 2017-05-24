@@ -1,3 +1,5 @@
+import * as _ from "underscore"
+
 import {Tweet} from "../../entities/Tweet";
 import {TweetService} from "../../services/impl/TweetService";
 export class SharedModel {
