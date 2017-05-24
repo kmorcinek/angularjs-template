@@ -8,6 +8,9 @@ export class SharedModel {
 
     constructor(tweetService: TweetService) {
         this.tweets = tweetService.getAll();
+
+        var ints = [1, 2];
+        let map = _.map(ints, x => x * 2);
     }
 
     public toggleTopbar(): void {
