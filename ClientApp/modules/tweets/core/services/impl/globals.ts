@@ -1,7 +1,5 @@
-import {Tweet} from "../../entities/Tweet";
-
 interface IBrowserHubServer {
-    getData(): JQueryDeferred<Tweet>;
+    getData<T>(): JQueryDeferred<T>;
 }
 
 interface IBrowserHub {
