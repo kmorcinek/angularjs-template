@@ -1,7 +1,7 @@
 import {Tweet} from "../../entities/Tweet";
 import * as jQuery from 'jquery';
 import 'signalr';
-import './globals'
+import { SignalR } from './globals'
 
 export class TweetService {
     public getAll(): Array<Tweet> {
@@ -17,7 +17,8 @@ export class TweetService {
         var signalRExists = jQuery.connection != null;
         console.log('signalRExist', signalRExists);
 
-        jQuery.connection.browserHub.server.getData()
+        let signalr = (jQuery.connection as any) as SignalR;
+        signalr.browserHub.server.getData()
             .done(() => {
                 console.log('getData');
             });

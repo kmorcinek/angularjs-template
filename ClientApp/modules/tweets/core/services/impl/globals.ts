@@ -8,6 +8,6 @@ interface IBrowserHub {
     server: IBrowserHubServer;
 }
 
-interface SignalR {
+export interface SignalR {
     browserHub: IBrowserHub;
 }
