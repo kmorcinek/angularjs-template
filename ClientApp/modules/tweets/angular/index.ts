@@ -12,12 +12,12 @@ import {SidebarModel} from "../core/models/impl/SidebarModel";
 import {TopbarModel} from "../core/models/impl/TopbarModel";
 import {TweetService} from "../core/services/impl/TweetService";
 
-angular.module("app.tweets", ["ngRoute"])
-    .service("ContentModel", ContentModel)
+let app = angular.module("app.tweets", ["ngRoute"]) as ng.IModule;
+ app.service("ContentModel", ContentModel)
     .service("SharedModel", SharedModel)
     .service("SidebarModel", SidebarModel)
-    .service("TopbarModel", TopbarModel)
     .service("TweetService", TweetService)
+    .service("TopbarModel", TopbarModel)
     .component("pageTweets", new PageTweetsComponent())
     .component("tweetContent", new TweetContentComponent())
     .component("tweetMain", new TweetMainComponent())
