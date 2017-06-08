@@ -17,10 +17,13 @@ export class TweetService {
         var signalRExists = jQuery.connection != null;
         console.log('signalRExist', signalRExists);
 
-        jQuery.connection.browserHub.server.getData()
-            .then((tweet: Tweet) => {
-                console.log('getData');
-            });
+        let hide = false;
+        if (hide) {
+            jQuery.connection.browserHub.server.getData()
+                .then((tweet: Tweet) => {
+                    console.log('getData');
+                });
+        }
 
         return returnObj;
     }
