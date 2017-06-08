@@ -18,7 +18,7 @@ export class TweetService {
         console.log('signalRExist', signalRExists);
 
         jQuery.connection.browserHub.server.getData()
-            .done(() => {
+            .then((tweet: Tweet) => {
                 console.log('getData');
             });
 
